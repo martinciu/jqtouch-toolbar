@@ -12,7 +12,7 @@
     %script{ :src => "jqtouch/extensions/jqt.scrolling.js", :type => "application/x-javascript", :charset => "utf-8" }
     :javascript
       var jQT = new $.jQTouch({
-        slideSelector: '#jqt li a'
+        slideSelector: '#jqt li a, slide'
       });
       $(window).bind('load orientationchange', function(){
         $('#jqt').removeClass('profile landscape').addClass(Math.abs(window.orientation) == 90 ? 'landscape' : 'profile');
@@ -25,9 +25,9 @@
           %h1
             Toolbar test
         %ul.rounded
-          %li
-            %a{ :href => "/toolbar" }
-              toolbar
-          %li
-            %a{ :href => "/notoolbar" }
-              no toolbar
+          %li.arrow
+            %a{ :href => "/toolbar" } toolbar
+            %small.counter 101
+          %li.arrow
+            %a{ :href => "/notoolbar" } no toolbar
+            %small.counter 101

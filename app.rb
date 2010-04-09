@@ -10,6 +10,10 @@ get '/toolbar' do
   haml :toolbar
 end
 
+get '/toolbar2' do
+  haml :toolbar2
+end
+
 get '/notoolbar' do
   haml :notoolbar
 end
