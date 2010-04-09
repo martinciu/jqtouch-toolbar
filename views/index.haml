@@ -4,45 +4,30 @@
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
     %title
       JQtouch Toolbar test
-    %style{ :type => "text/css", :media => "screen" }
-      @import "jqtouch/jqtouch.min.css";
-    %style{ :type => "text/css", :media => "screen" }
-      @import "jqtouch/themes/jqt/theme.min.css";
+    %style{ :type => "text/css", :media => "screen" } @import "jqtouch/jqtouch.css";
+    %style{ :type => "text/css", :media => "screen" } @import "jqtouch/themes/apple/theme.css";
+    %style{ :type => "text/css", :media => "screen" } @import "jqtouch/extensions/scrolling.css";
     %script{ :src => "jqtouch/jquery.1.3.2.min.js", :type => "text/javascript", :charset => "utf-8" }
-    %script{ :src => "jqtouch/jqtouch.min.js", :type => "application/x-javascript", :charset => "utf-8" }
+    %script{ :src => "jqtouch/jqtouch.js", :type => "application/x-javascript", :charset => "utf-8" }
+    %script{ :src => "jqtouch/extensions/jqt.scrolling.js", :type => "application/x-javascript", :charset => "utf-8" }
     :javascript
-      var jQT = new $.jQTouch();
-    %body
+      var jQT = new $.jQTouch({
+        slideSelector: '#jqt li a'
+      });
+      $(window).bind('load orientationchange', function(){
+        $('#jqt').removeClass('profile landscape').addClass(Math.abs(window.orientation) == 90 ? 'landscape' : 'profile');
+        scrollTo(0,0);
+      });
+  %body
+    #jqt
       #index
         .toolbar
           %h1
-            My app
+            Toolbar test
         %ul.rounded
           %li
-            %a{ :href => "#foo" }
-              Foo
+            %a{ :href => "/toolbar" }
+              toolbar
           %li
-            %a{ :href => "#bar" }
-              Bar
-          %li
-            %a{ :href => "/home" }
-              Home
-          %li
-            %a{ :href => "/about" }
-              About
-      #foo
-        .toolbar
-          %h1
-            Foo
-          %a.back{ :href => "#" }
-            Back
-        .info
-          Foo!!
-      #bar
-        .toolbar
-          %h1
-            Bar
-          %a.back{ :href => "#" }
-            Back
-        .info
-          Bar!!
+            %a{ :href => "/notoolbar" }
+              no toolbar

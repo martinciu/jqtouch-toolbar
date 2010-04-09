@@ -6,10 +6,10 @@ get '/' do
   haml :index
 end
 
-get '/about' do
-  haml :about
+get '/toolbar' do
+  haml :toolbar
 end
 
-get '/home' do
-  haml :home
+get '/notoolbar' do
+  haml :notoolbar
 end

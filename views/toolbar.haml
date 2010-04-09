@@ -1,0 +1,14 @@
+#home
+  .toolbar
+    %h1
+      Toolbar
+    %a.back{ :href => "#" }
+      Back
+  .vertical-scroll.use-bottom-toolbar
+    %div
+      %ul.rounded
+        - 100.times do |n|
+          %li
+            %a{:href => "#"} Item #{n}
+  .toolbar
+    %h1 Bottom

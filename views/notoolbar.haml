@@ -1,10 +1,10 @@
-#home
+#about
   .toolbar
     %h1
-      Home
+      No toolbar
     %a.back{ :href => "#" }
       Back
   %ul.rounded
     - 100.times do |n|
-      %li "Item #{n}"
-    
+      %li
+        %a{:href => "#"} Item #{n}
