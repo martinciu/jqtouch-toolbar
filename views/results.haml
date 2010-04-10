@@ -1,0 +1,10 @@
+#home
+  .toolbar
+    %h1
+      Toolbar test
+    %a.back{ :href => "#" } Wróć
+  .vertical-scroll.use-bottom-toolbar
+    %div
+    .info
+      Czyżbyś szukał za "#{params[:q]}"?
+  = haml :toolbar

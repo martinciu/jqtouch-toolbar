@@ -5,14 +5,29 @@
     %title
       JQtouch Toolbar test
     %style{ :type => "text/css", :media => "screen" } @import "jqtouch/jqtouch.css";
-    %style{ :type => "text/css", :media => "screen" } @import "jqtouch/themes/apple/theme.css";
+    %style{ :type => "text/css", :media => "screen" } @import "jqtouch/themes/jqt/theme.css";
     %style{ :type => "text/css", :media => "screen" } @import "jqtouch/extensions/scrolling.css";
     %script{ :src => "jqtouch/jquery.1.3.2.min.js", :type => "text/javascript", :charset => "utf-8" }
     %script{ :src => "jqtouch/jqtouch.js", :type => "application/x-javascript", :charset => "utf-8" }
     %script{ :src => "jqtouch/extensions/jqt.scrolling.js", :type => "application/x-javascript", :charset => "utf-8" }
     :javascript
       var jQT = new $.jQTouch({
-        slideSelector: '#jqt li a, slide'
+        slideSelector: '#jqt li a, slide',
+        preloadImages: [
+          '/images/toolbar/home.png',
+          '/images/toolbar/categories.png',
+          '/images/toolbar/star.png',
+          '/images/toolbar/search.png',
+          '/images/toolbar/pages.png',
+          '/jqtouch/themes/jqt/img/toolbar.png',
+          '/jqtouch/themes/jqt/img/button.png',
+          '/jqtouch/themes/jqt/img/back_button.png',
+          '/jqtouch/themes/jqt/img/back_button_clicked.png',
+          '/jqtouch/themes/jqt/img/whiteButton.png',
+          '/jqtouch/themes/jqt/img/activeButton.png'
+        ],
+        statusBar: 'black-translucent',
+        useAnimations: false
       });
       $(window).bind('load orientationchange', function(){
         $('#jqt').removeClass('profile landscape').addClass(Math.abs(window.orientation) == 90 ? 'landscape' : 'profile');
@@ -20,14 +35,4 @@
       });
   %body
     #jqt
-      #index
-        .toolbar
-          %h1
-            Toolbar test
-        %ul.rounded
-          %li.arrow
-            %a{ :href => "/toolbar" } toolbar
-            %small.counter 101
-          %li.arrow
-            %a{ :href => "/notoolbar" } no toolbar
-            %small.counter 101
+      = haml :home

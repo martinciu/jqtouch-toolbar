@@ -1,0 +1,20 @@
+#search
+  .toolbar
+    %h1 Search
+  .vertical-scroll.use-bottom-toolbar
+    %div
+      - if @error
+        .info
+          = @error
+      %form{:action => "/search", :method => :post}
+        %ul.rounded
+          %li
+            %input{:type => "text", :name => "q", :placeholder => "Query string", :value => params[:q]}
+          %li
+            %input{:type => "radio", :name => "where", :value => "all", :title => "Wszystko"}
+          %li
+            %input{:type => "radio", :name => "where", :value => "not_all", :title => "Nie wszystko"}
+          %li
+            %input{:type => "checkbox", :name => "top_secret", :value => "top_secret", :title => "ściśle tejne?"}
+        %a.submit.whiteButton{:href => "#"} Search
+  = haml :toolbar  

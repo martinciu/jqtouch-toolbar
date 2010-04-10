@@ -1,15 +1,11 @@
-#toolbar
-  .toolbar
-    %h1
-      Toolbar
-    %a.back{ :href => "#" }
-      Back
-  .vertical-scroll.use-bottom-toolbar
-    %div
-      %ul.rounded
-        - 100.times do |n|
-          %li Item #{n}
-  .toolbar
-    %a.fade{ :href => "/toolbar" } 1
-    |
-    %a.fade{ :href => "/toolbar2" } 2
+.toolbar
+  %a.fade{ :href => "/home" }
+    %img{ :src => "/images/toolbar/home.png" }
+  %a.fade{ :href => "/categories" }
+    %img{ :src => "/images/toolbar/categories.png" }
+  %a.fade{ :href => "/featured" }
+    %img{ :src => "/images/toolbar/star.png" }
+  %a.fade{ :href => "/search" }
+    %img{ :src => "/images/toolbar/search.png" }
+  %a.fade{ :href => "/notoolbar" }
+    %img{ :src => "/images/toolbar/pages.png" }
